@@ -1,0 +1,42 @@
+* {
+    margin: 0;
+    padding: o;
+}
+
+body {
+    background: #EFE34B;
+}
+
+h1 {
+    text-align: center;
+}
+
+.scoreboard {
+    display: flex;
+    justify-content: space-between;
+}
+
+.cardDeck {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    background: #EFE34B;
+}
+
+.card {
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    width: 90px;
+    height: 120px;
+    background-color: aqua
+}
+
+.button {
+    display: inline-block;
+    align-items: flex-end;
+    display: flex;
+    justify-content: center;
+    position: fixed;
+    bottom: 0;
+}
