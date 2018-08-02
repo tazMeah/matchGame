@@ -1,6 +1,6 @@
 * {
     margin: 0;
-    padding: o;
+    padding: 0;
 }
 
 body {
@@ -22,24 +22,19 @@ div {
 
 .card_deck {
     display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
     margin-left: 35px;
     margin-right: 35px;
     margin-top: 35px
 }
 
-.border {
-    border: 12px solid #EFE34B;
-    flex: 1;
-    min-width: 15%;
-    min-height: 10%;
-}
-
 .card {
     display: flex;
-    height: 545px;
-    width: 550px;
+    height: 125px;
+    width: 20%;
     flex-wrap: wrap;
-    margin: 0 auto;
+    margin: 5px;
     background: #32c8e7;
 }
 
@@ -110,3 +105,10 @@ img {
 
 
 /* <-- end taz added 8-2-18 10:09am */
+
+@media only screen and (min-width: 768px) {
+    .card_deck {
+        width: 30%;
+        margin: 0 auto;
+    }
+}
