@@ -83,9 +83,6 @@ img {
     border-radius: 8px;
 }
 
-
-/* --> taz added 8-2-18 10:09am */
-
 .card_face_front {
     background-size: 125px 20%;
     position: absolute;
@@ -114,9 +111,6 @@ img {
     backface-visibility: hidden;
 }
 
-
-/* style for both matching cards */
-
 .match {}
 
 @media only screen and (min-width: 768px) {
@@ -125,11 +119,3 @@ img {
         margin: 0 auto;
     }
 }
-
-
-/* 
-if clicked card value is === to clociked car value, fade out. else, flip 
-
-if((".card").on(click) ==== function(
-    fadeOUt
-) */
