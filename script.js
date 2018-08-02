@@ -39,15 +39,16 @@ $(document).ready(() => {
     // --> taz added 8-2-18 10:07am
 
     //when you click a card
-    $(document).on("click", ".back", function() {
+    $(document).on("click", ".back", function(e) {
 
             //add a class to it
             $(this).toggleClass("back front");
             console.log($(this).attr("value"));
             // add background
-
-            $(this).css("background", `url("/img/${$(this).attr('value')}.jpg")`);
-
+            setTimeout(function() {
+                $(e.target).css("background", `url("/img/${$(e.target).attr('value')}.jpg")`);
+            }, 100);
+            
             // if 2 cards have been flipped, i.e. 2 cards have class of "front"
             if (document.querySelectorAll(".front").length == 2) {
                 // check if the first one's value is equal to the second one's value
