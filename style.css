@@ -101,7 +101,7 @@ img {
     transform: rotateY(180deg);
 }
   
-.card__face {
+.card_face {
     position: absolute;
     width: 100%;
     height: 100%;

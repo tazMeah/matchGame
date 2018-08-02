@@ -19,7 +19,7 @@ $(document).ready(() => {
             const deck = [];
             for (let i = 1; i <= numOfCards; i++) {
                 for (let j = 0; j < 2; j++) {
-                    this.deck.push(`<div class="card" value="${i}"><div class="card_face card_face_front">Front ${i}</div><div class="card_face card_face_back">Back ${i}</div></div>`);
+                    this.deck.push(`<div class="card" value="${i}"><div class="card_face card_face_front" value="${i}"></div><div class="card_face card_face_back" value="${i}"></div></div>`);
                 }
             }
         }
@@ -45,7 +45,7 @@ $(document).ready(() => {
         $(this).toggleClass("is_flipped");
         console.log($(this).attr("value"));
         // add background
-        $(e.target).css("background", `url("/img/${$(e.target).attr('value')}.jpg")`);
+        //$(e.target).css("background", `url("/img/${$(e.target).attr('value')}.jpg")`);
 
         isMatch();
 
@@ -70,19 +70,10 @@ $(document).ready(() => {
             }
         }
     }
-        // <-- end taz added 8-2-2018 10:07am 
-        // const timeleft = 15;
-        // const downloadTimer = setInterval(function() {
-        //     timeleft--;
-        //     document.getElementById("countdownTimer").textContent = timeleft;
-        //     if (timeleft <= 0)
-        //         clearInterval(downloadTimer);
-        // }, 1000);
-
-
-        //$(".back").css("background-image", `url("${$('.card').attr('value').jpg}")`);
         
-
-
+        $(".card_face_back").each(function(){
+            $(this).css("background-image", `url("/img/${$(this).attr("value")}.jpg")`);
+        })
+        
 
 });
