@@ -33,12 +33,13 @@ $(document).ready(() => {
     let memoryDeck = new CardDeck();
     memoryDeck.generateCards(16);
     memoryDeck.randomizeCards();
-    fillGrid(memoryDeck.deck);
+
 
 
     $("#reset").click(function() {
         location.reload(5000);
-        memoryDeck.randomizeCards()
+        memoryDeck.randomizeCards(16);
+        fillGrid(memoryDeck.deck);
     })
 
 
@@ -52,34 +53,23 @@ $(document).ready(() => {
         // add background
         //$(e.target).css("background", `url("/img/${$(e.target).attr('value')}.jpg")`);
 
-        isMatch();
+        //isMatch(e.target);
 
     });
 
     // if 2 cards have been flipped, i.e. 2 cards have class of "front"
-    function isMatch() {
-        if (document.querySelectorAll(".front").length == 2) {
-            // check if the first one's value is equal to the second one's value
-            if ($(".front").eq(0).attr("value") == $(".front").eq(1).attr("value")) {
-                // if a match
-                console.log("they match");
-                // add class "match" to them and remove class "front"
-                $(".front").toggleClass("front match");
-                // add the score by counting the number of class "match". Put it in the score span
-                $("span").text($(".match").length);
-            } else {
-                // if no match
-                console.log("they don't match");
-                // remove class front from all
-                $(".front").removeClass("front")
-
-            }
-        }
-    }
+    // function isMatch(card) {
+    //     if ($(card).attr("value") === )
+    // }
 
 
     $("#start").click(function() {
         let counter = 20;
+        fillGrid(memoryDeck.deck);
+        $(".card_face_back").each(function() {
+            $(this).css("background-image", `url("img/${$(this).attr("value")}.jpg")`);
+        });
+        let counter = 8;
         setInterval(function() {
             counter--;
             if (counter >= 0) {
@@ -94,5 +84,6 @@ $(document).ready(() => {
     $(".card_face_back").each(function() {
         $(this).css("background-image", `url("img/${$(this).attr("value")}.jpg")`);
     })
+
 
 });
