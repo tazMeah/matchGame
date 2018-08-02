@@ -40,3 +40,27 @@ h1 {
     position: fixed;
     bottom: 0;
 }
+
+/* --> taz added 8-2-18 10:09am */
+.front {
+    animation: flip .4s forwards;
+}
+
+/* style for both matching cards */
+.match {
+
+}
+
+@keyframes flip {
+    0% {}
+    50% {
+      box-shadow: 0px 40px 15px grey;
+    }
+    100% {
+      transform: scaleX(-1);
+      background: red; 
+      /*background-size: 200px 350px;*/
+    }
+  }
+
+/* <-- end taz added 8-2-18 10:09am */
