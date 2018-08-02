@@ -20,7 +20,7 @@ div {
     font-family: comic;
 }
 
-.coardDeck {
+.card_deck {
     display: flex;
     margin-left: 35px;
     margin-right: 35px;
@@ -44,11 +44,6 @@ div {
 }
 
 .scoreboard {}
-
-.card_deck {
-    display: flex;
-    justify-content: space-between;
-}
 
 nav {
     display: flex;
@@ -93,6 +88,8 @@ img {
 .front {
     animation: flip .4s forwards;
 }
+
+.back {}
 
 
 /* style for both matching cards */

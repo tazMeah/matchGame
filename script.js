@@ -73,11 +73,11 @@ $(document).ready(() => {
 
         })
         // <-- end taz added 8-2-2018 10:07am 
-    const timeleft = 15;
-    const downloadTimer = setInterval(function() {
-        timeleft--;
-        document.getElementById("countdownTimer").textContent = timeleft;
-        if (timeleft <= 0)
-            clearInterval(downloadTimer);
-    }, 1000);
+        // const timeleft = 15;
+        // const downloadTimer = setInterval(function() {
+        //     timeleft--;
+        //     document.getElementById("countdownTimer").textContent = timeleft;
+        //     if (timeleft <= 0)
+        //         clearInterval(downloadTimer);
+        // }, 1000);
 });
