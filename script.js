@@ -42,9 +42,11 @@ $(document).ready(() => {
     $(document).on("click", ".back", function() {
 
             //add a class to it
-            $(this).addClass("front");
+            $(this).toggleClass("back front");
             console.log($(this).attr("value"));
+            // add background
 
+            $(this).css("background", `url("/img/${$(this).attr('value')}.jpg")`);
 
             // if 2 cards have been flipped, i.e. 2 cards have class of "front"
             if (document.querySelectorAll(".front").length == 2) {
@@ -80,4 +82,11 @@ $(document).ready(() => {
         //     if (timeleft <= 0)
         //         clearInterval(downloadTimer);
         // }, 1000);
+
+
+        //$(".back").css("background-image", `url("${$('.card').attr('value').jpg}")`);
+        
+
+
+
 });

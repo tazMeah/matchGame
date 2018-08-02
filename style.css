@@ -36,6 +36,7 @@ div {
     flex-wrap: wrap;
     margin: 5px;
     background: #32c8e7;
+    border-radius: 5px;
 }
 
 .scoreboard {}
@@ -82,9 +83,12 @@ img {
 
 .front {
     animation: flip .4s forwards;
+    background-size: 125px 20%
 }
 
-.back {}
+.back {
+
+}
 
 
 /* style for both matching cards */
@@ -98,7 +102,6 @@ img {
     }
     100% {
         transform: scaleX(-1);
-        background: red;
         /*background-size: 200px 350px;*/
     }
 }
