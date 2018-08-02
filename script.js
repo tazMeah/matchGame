@@ -19,7 +19,7 @@ $(document).ready(() => {
             const deck = [];
             for (let i = 1; i <= numOfCards; i++) {
                 for (let j = 0; j < 2; j++) {
-                    this.deck.push(`<div class="card" value="${i}"><div class="card_face card_face_front" value="${i}"></div><div class="card_face card_face_back" value="${i}"></div></div>`);
+                    this.deck.push(`<div class="card is_flipped" value="${i}"><div class="card_face card_face_front" value="${i}"></div><div class="card_face card_face_back" value="${i}"></div></div>`);
                 }
             }
         }
@@ -79,7 +79,7 @@ $(document).ready(() => {
 
 
     $("#start").click(function() {
-        let counter = 8;
+        let counter = 20;
         setInterval(function() {
             counter--;
             if (counter >= 0) {
@@ -92,7 +92,7 @@ $(document).ready(() => {
     });
 
     $(".card_face_back").each(function() {
-        $(this).css("background-image", `url("/img/${$(this).attr("value")}.jpg")`);
+        $(this).css("background-image", `url("img/${$(this).attr("value")}.jpg")`);
     })
 
 });

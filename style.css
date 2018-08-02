@@ -91,9 +91,7 @@ img {
     backface-visibility: hidden;
 }
 
-.card_face_back {
-    transform: rotateY(180deg);
-}
+.card_face_back {}
 
 .card.is_flipped {
     transform: rotateY(180deg);
