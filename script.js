@@ -19,7 +19,7 @@ $(document).ready(() => {
             const deck = [];
             for (let i = 1; i <= numOfCards; i++) {
                 for (let j = 0; j < 2; j++) {
-                    this.deck.push(`<div class="card back" value="${i}">${i}</div>`);
+                    this.deck.push(`<div class="card" value="${i}"><div class="card_face card_face_front" value="${i}"></div><div class="card_face card_face_back" value="${i}"></div></div>`);
                 }
             }
         }
@@ -44,16 +44,20 @@ $(document).ready(() => {
 
 
     //when you click a card
-    $(document).on("click", ".back", function() {
+    $(document).on("click", ".card", function(e) {
 
         //add a class to it
-        $(this).toggleClass("back front");
+        $(this).toggleClass("is_flipped");
         console.log($(this).attr("value"));
         // add background
+        //$(e.target).css("background", `url("/img/${$(e.target).attr('value')}.jpg")`);
 
-        $(this).css("background", `url("/img/${$(this).attr('value')}.jpg")`);
+        isMatch();
 
-        // if 2 cards have been flipped, i.e. 2 cards have class of "front"
+    });
+
+    // if 2 cards have been flipped, i.e. 2 cards have class of "front"
+    function isMatch() {
         if (document.querySelectorAll(".front").length == 2) {
             // check if the first one's value is equal to the second one's value
             if ($(".front").eq(0).attr("value") == $(".front").eq(1).attr("value")) {
@@ -61,13 +65,8 @@ $(document).ready(() => {
                 console.log("they match");
                 // add class "match" to them and remove class "front"
                 $(".front").toggleClass("front match");
-
                 // add the score by counting the number of class "match". Put it in the score span
-                //$("span").text($(".match").length);
-
-
-
-
+                $("span").text($(".match").length);
             } else {
                 // if no match
                 console.log("they don't match");
@@ -76,7 +75,7 @@ $(document).ready(() => {
 
             }
         }
-    })
+    }
 
 
     $("#start").click(function() {
@@ -92,9 +91,8 @@ $(document).ready(() => {
         }, 1000);
     });
 
+    $(".card_face_back").each(function() {
+        $(this).css("background-image", `url("/img/${$(this).attr("value")}.jpg")`);
+    })
 
 });
-
-//$(".back").css("background-image", `url("${$('.card').attr('value').jpg}")`);
-
-//});
