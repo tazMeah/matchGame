@@ -19,7 +19,7 @@ $(document).ready(() => {
             const deck = [];
             for (let i = 1; i <= numOfCards; i++) {
                 for (let j = 0; j < 2; j++) {
-                    this.deck.push(`<div class="card back" value="${i}">${i}</div>`);
+                    this.deck.push(`<div class="card" value="${i}"><div class="card_face card_face_front">Front ${i}</div><div class="card_face card_face_back">Back ${i}</div></div>`);
                 }
             }
         }
@@ -39,42 +39,37 @@ $(document).ready(() => {
     // --> taz added 8-2-18 10:07am
 
     //when you click a card
-    $(document).on("click", ".back", function(e) {
+    $(document).on("click", ".card", function(e) {
 
-            //add a class to it
-            $(this).toggleClass("back front");
-            console.log($(this).attr("value"));
-            // add background
-            setTimeout(function() {
-                $(e.target).css("background", `url("/img/${$(e.target).attr('value')}.jpg")`);
-            }, 100);
-            
-            // if 2 cards have been flipped, i.e. 2 cards have class of "front"
-            if (document.querySelectorAll(".front").length == 2) {
-                // check if the first one's value is equal to the second one's value
-                if ($(".front").eq(0).attr("value") == $(".front").eq(1).attr("value")) {
-                    // if a match
-                    console.log("they match");
-                    // add class "match" to them and remove class "front"
-                    $(".front").toggleClass("front match");
+        //add a class to it
+        $(this).toggleClass("is_flipped");
+        console.log($(this).attr("value"));
+        // add background
+        $(e.target).css("background", `url("/img/${$(e.target).attr('value')}.jpg")`);
 
-                    // add the score by counting the number of class "match". Put it in the score span
-                    $("span").text($(".match").length);
+        isMatch();
 
+        });
 
-
-
-                } else {
-                    // if no match
-                    console.log("they don't match");
-                    // remove class front from all
-                    $(".front").removeClass("front")
-
-                }
-
+    // if 2 cards have been flipped, i.e. 2 cards have class of "front"
+    function isMatch() {
+        if (document.querySelectorAll(".front").length == 2) {
+        // check if the first one's value is equal to the second one's value
+            if ($(".front").eq(0).attr("value") == $(".front").eq(1).attr("value")) {
+                // if a match
+                console.log("they match");
+                // add class "match" to them and remove class "front"
+                $(".front").toggleClass("front match");
+                // add the score by counting the number of class "match". Put it in the score span
+                $("span").text($(".match").length);
+            } else {
+                // if no match
+                console.log("they don't match");
+                // remove class front from all
+                $(".front").removeClass("front")
             }
-
-        })
+        }
+    }
         // <-- end taz added 8-2-2018 10:07am 
         // const timeleft = 15;
         // const downloadTimer = setInterval(function() {
