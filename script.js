@@ -68,13 +68,14 @@ $(document).ready(() => {
     //alternating Start/Reset button
     $("button").click(function () {
         memoryDeck.randomizeCards(16);
-        fillGrid(memoryDeck.deck);
         $(".card_face_back").each(function() {
             $(this).css("background-image", `url("img/${$(this).attr("value")}.jpg")`);
         });
         //start button
         if($(this).attr("class") === "start") {
             let counter = 45;
+
+            fillGrid(memoryDeck.deck);
         
             setInterval(function() {
                 counter--;
