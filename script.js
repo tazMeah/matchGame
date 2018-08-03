@@ -81,7 +81,6 @@ $(document).ready(() => {
         $(".card_face_back").each(function() {
             $(this).css("background-image", `url("img/${$(this).attr("value")}.jpg")`);
         });
-        let counter = 8;
         setInterval(function() {
             counter--;
             if (counter >= 0) {
