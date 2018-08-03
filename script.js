@@ -51,7 +51,7 @@ $(document).ready(() => {
                 $(".is_flipped").toggleClass("is_flipped")
                     .animate({ opacity: 0, }, 1000);
                 score++;
-                $("#score").text(`SCORE: ${score}`);
+                $("#score").text(`SCORE: ${score} out of 8`);
             } else {
                 console.log("no match");
                 //if no match wait 3sec then flip
@@ -69,45 +69,49 @@ $(document).ready(() => {
 
 
     //alternating Start/Reset button
-    $("button").click(function () {
+    $("button").click(function() {
         memoryDeck.randomizeCards(16);
         fillGrid(memoryDeck.deck);
         $(".card_face_back").each(function() {
             $(this).css("background-image", `url("img/${$(this).attr("value")}.jpg")`);
         });
 
+
         //start button
-        if($(this).attr("class") === "start") {
-            let counter = 45;
-        
+        if ($(this).attr("class") === "start") {
+            let counter = 46;
+
+            $(".intro").slideUp(1000);
+
+
             setInterval(function() {
                 counter--;
-              // you win, stop timer
-            if (score == 8) {
-                clearInterval(counter);
-                return ;
-            }
+                // you win, stop timer
+                if (score == 8) {
+                    clearInterval(counter);
+                    return;
+                }
                 if (counter >= 0) {
                     $("#count").text(counter);
                 }
                 if (counter === 0) {
                     clearInterval(counter);
-                  
-                   //game over
-                $(".card_deck").toggle();
-                $("#gameOver div").toggle();
+
+                    //game over
+                    $(".card_deck").toggle();
+                    $("#gameOver div").toggle();
                 }
             }, 1000);
             $(this).
             toggleClass("start reset")
-            .text("RESET");
-        //reset button
+                .text("RESET");
+            //reset button
         } else if ($(this).attr("class") === "reset") {
             location.reload();
             $(this)
-            .toggleClass("reset start")
-            .text("START");
+                .toggleClass("reset start")
+                .text("START");
         }
     });
-    
+
 });

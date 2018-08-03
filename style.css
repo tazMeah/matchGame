@@ -60,11 +60,18 @@ h1 {
     background: cornsilk;
 }
 
-
-/* div {
+.intro {
+    z-index: -3;
+    background: cornsilk;
+    border: solid black 2px;
+    border-radius: 5px;
+    text-align: center;
+    margin-top: 20px;
+    margin-right: 10px;
+    margin-left: 10px;
     font-family: Comic, sans-serif;
-    color: #D0D6DF;
-} */
+    padding: 5px;
+}
 
 .card_deck {
     display: flex;
@@ -115,16 +122,16 @@ button {
 }
 
 button:focus {
-    outline:0;
+    outline: 0;
 }
 
 .start {
-    background: #bb2826;
+    background: #1c6633;
     border: solid black 2px;
 }
 
 .reset {
-    background: #1c6633;
+    background: #bb2826;
     border: solid black 2px;
 }
 
@@ -162,7 +169,9 @@ button:focus {
     backface-visibility: hidden;
 }
 
+
 /* taz added 8/3/2018 */
+
 #gameOver {
     display: flex;
     justify-content: center;
@@ -189,6 +198,7 @@ button:focus {
     padding: 10px;
     border-top: 4px solid #bb2826;
     border-bottom: 4px solid #bb2826;
+    font-family: 'Bangers', cursive;
 }
 
 .match {}
