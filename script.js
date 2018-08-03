@@ -51,6 +51,7 @@ $(document).ready(() => {
                 $(".is_flipped").toggleClass("is_flipped")
                     .animate({ opacity: 0, }, 1000);
                 score++;
+                $("#score").text(`SCORE: ${score}`);
             } else {
                 console.log("no match");
                 //if no match wait 3sec then flip
@@ -63,6 +64,7 @@ $(document).ready(() => {
                     });
             }
         }
+
     });
 
 
