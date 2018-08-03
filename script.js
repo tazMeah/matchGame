@@ -35,7 +35,7 @@ $(document).ready(() => {
     let memoryDeck = new CardDeck();
     memoryDeck.generateCards(16);
     memoryDeck.randomizeCards();
-    
+
 
 
     $("#reset").click(function() {
@@ -76,6 +76,7 @@ $(document).ready(() => {
     });
     //start button operations
     $("#start").click(function() {
+        let counter = 20;
         fillGrid(memoryDeck.deck);
         $(".card_face_back").each(function() {
             $(this).css("background-image", `url("img/${$(this).attr("value")}.jpg")`);
