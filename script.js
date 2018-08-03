@@ -11,7 +11,7 @@ $(document).ready(() => {
         }
     }
 
-    class cardeck {
+    class CardDeck {
         constructor(numOfCards) {
             this.deck = [];
             this.numOfCards = numOfCards;
@@ -53,30 +53,30 @@ $(document).ready(() => {
         $(this).toggleClass("is_not_flipped is_flipped");
 
         //if 2 cards are flipped
-        if($(".is_flipped").length === 2) {
+        if ($(".is_flipped").length === 2) {
             //check if is a match
-            if($(".is_flipped").eq(0).attr("value") === $(".is_flipped").eq(1).attr("value")) {
+            if ($(".is_flipped").eq(0).attr("value") === $(".is_flipped").eq(1).attr("value")) {
                 console.log("match found");
                 //if matched increment score and hide cards
                 $(".is_flipped").toggleClass("is_flipped")
-                .animate({opacity: 0,}, 2000);
+                    .animate({ opacity: 0, }, 1000);
                 score++;
             } else {
                 console.log("no match");
                 //if no match wait 3sec then flip
                 $(".is_flipped")
-                .delay(3000)
-                .queue(function(next) {
-                    $(".is_flipped")
-                    .toggleClass("is_flipped is_not_flipped");
-                    next();
-                });
+                    .delay(1100)
+                    .queue(function(next) {
+                        $(".is_flipped")
+                            .toggleClass("is_flipped is_not_flipped");
+                        next();
+                    });
             }
         }
     });
     //start button operations
     $("#start").click(function() {
-        let counter = 20;
+        let counter = 45;
         fillGrid(memoryDeck.deck);
         $(".card_face_back").each(function() {
             $(this).css("background-image", `url("img/${$(this).attr("value")}.jpg")`);
