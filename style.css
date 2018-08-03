@@ -43,7 +43,9 @@ div {
     width: 20%;
     flex-wrap: wrap;
     margin: 5px;
-    background: #32c8e7;
+    background: url("img/dclogo.jpg");
+    background-size: cover;
+    background-position-y: center;
     border-radius: 5px;
     transition: 1s;
     transform-style: preserve-3d;
