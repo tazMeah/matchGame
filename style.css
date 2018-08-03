@@ -24,6 +24,7 @@ h1 {
     font-size: 70px;
     margin-top: 30px;
     color: #bb2826;
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
 }
 
 .scoreboard {
@@ -88,6 +89,7 @@ h1 {
     transform-style: preserve-3d;
     position: relative;
     cursor: pointer;
+    border: solid black 2px;
 }
 
 nav {
