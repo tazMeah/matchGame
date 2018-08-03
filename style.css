@@ -75,14 +75,15 @@ button {
     font-size: 120%;
 }
 
-#start {
-    margin-right: 10px;
-    margin-left: 35px;
+button:focus {
+    outline:0;
+}
+
+.start {
     background: #bb2826;
 }
 
-#reset {
-    margin-right: 35px;
+.reset {
     background: #1c6633;
 }
 
