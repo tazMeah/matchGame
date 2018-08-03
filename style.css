@@ -94,7 +94,7 @@ img {
     background-size: cover;
 }
 
-.card.is_flipped {
+.is_not_flipped {
     transform: rotateY(180deg);
 }
 
