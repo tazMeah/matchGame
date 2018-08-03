@@ -120,6 +120,35 @@ img {
     backface-visibility: hidden;
 }
 
+/* taz added 8/3/2018 */
+#gameOver {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+    position: relative;
+}
+
+#gameOver div {
+    background: url("https://i.pinimg.com/736x/4b/8c/fa/4b8cfa974c5ba2adff1097a04e18e044--joker-batman-the-joker.jpg");
+    background-size: cover;
+    height: 80vh;
+    width: 80vw;
+    border-radius: 5px;
+    position: absolute;
+    display: none;
+}
+
+#gameOver h2 {
+    color: #bb2826;
+    text-align: center;
+    margin-top: 10%;
+    font-size: 4em;
+    background: black;
+    padding: 10px;
+    border-top: 4px solid #bb2826;
+    border-bottom: 4px solid #bb2826;
+}
+
 .match {}
 
 @media only screen and (min-width: 768px) {

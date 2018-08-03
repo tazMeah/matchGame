@@ -65,6 +65,7 @@ $(document).ready(() => {
         }
     });
 
+
     //alternating Start/Reset button
     $("button").click(function () {
         memoryDeck.randomizeCards(16);
@@ -72,17 +73,27 @@ $(document).ready(() => {
         $(".card_face_back").each(function() {
             $(this).css("background-image", `url("img/${$(this).attr("value")}.jpg")`);
         });
+
         //start button
         if($(this).attr("class") === "start") {
             let counter = 45;
         
             setInterval(function() {
                 counter--;
+              // you win, stop timer
+            if (score == 8) {
+                clearInterval(counter);
+                return ;
+            }
                 if (counter >= 0) {
                     $("#count").text(counter);
                 }
                 if (counter === 0) {
                     clearInterval(counter);
+                  
+                   //game over
+                $(".card_deck").toggle();
+                $("#gameOver div").toggle();
                 }
             }, 1000);
             $(this).
@@ -96,4 +107,5 @@ $(document).ready(() => {
             .text("START");
         }
     });
+    
 });
