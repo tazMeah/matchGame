@@ -114,15 +114,16 @@ button {
     font-size: 120%;
 }
 
-#start {
-    margin-right: 10px;
-    margin-left: 35px;
+button:focus {
+    outline:0;
+}
+
+.start {
     background: #bb2826;
     border: solid black 2px;
 }
 
-#reset {
-    margin-right: 35px;
+.reset {
     background: #1c6633;
     border: solid black 2px;
 }
@@ -159,6 +160,35 @@ button {
     font-weight: bold;
     font-size: 40px;
     backface-visibility: hidden;
+}
+
+/* taz added 8/3/2018 */
+#gameOver {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+    position: relative;
+}
+
+#gameOver div {
+    background: url("https://i.pinimg.com/736x/4b/8c/fa/4b8cfa974c5ba2adff1097a04e18e044--joker-batman-the-joker.jpg");
+    background-size: cover;
+    height: 80vh;
+    width: 80vw;
+    border-radius: 5px;
+    position: absolute;
+    display: none;
+}
+
+#gameOver h2 {
+    color: #bb2826;
+    text-align: center;
+    margin-top: 10%;
+    font-size: 4em;
+    background: black;
+    padding: 10px;
+    border-top: 4px solid #bb2826;
+    border-bottom: 4px solid #bb2826;
 }
 
 .match {}
