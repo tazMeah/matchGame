@@ -78,7 +78,7 @@ $(document).ready(() => {
 
         //start button
         if($(this).attr("class") === "start") {
-            let counter = 45;
+            let counter = 10;
         
             setInterval(function() {
                 counter--;
@@ -87,8 +87,19 @@ $(document).ready(() => {
                 clearInterval(counter);
                 return ;
             }
-                if (counter >= 0) {
+                if (counter > 15) {
                     $("#count").text(counter);
+                } else if (counter < 16 && counter > 5) {
+                    $("#count")
+                    .text(counter)
+                    .css("color", "red");
+                } else if (counter < 6 && counter >= 0) {
+                    $("#count")
+                    .text(counter)
+                    .fadeOut(100);
+                    $("#count")
+                    .text(counter)
+                    .fadeIn(100);
                 }
                 if (counter === 0) {
                     clearInterval(counter);
