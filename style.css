@@ -79,11 +79,11 @@ button:focus {
     outline:0;
 }
 
-.reset  {
+.start {
     background: #bb2826;
 }
 
-.start{
+.reset {
     background: #1c6633;
 }
 
