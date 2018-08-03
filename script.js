@@ -61,6 +61,7 @@ $(document).ready(() => {
                 $(".is_flipped").toggleClass("is_flipped")
                     .animate({ opacity: 0, }, 1000);
                 score++;
+                $("#score").text(`SCORE: ${score}`);
             } else {
                 console.log("no match");
                 //if no match wait 3sec then flip
@@ -73,10 +74,13 @@ $(document).ready(() => {
                     });
             }
         }
+
     });
+
+
     //start button operations
     $("#start").click(function() {
-        let counter = 45;
+        let counter = 40;
         fillGrid(memoryDeck.deck);
         $(".card_face_back").each(function() {
             $(this).css("background-image", `url("img/${$(this).attr("value")}.jpg")`);
