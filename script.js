@@ -36,16 +36,6 @@ $(document).ready(() => {
     memoryDeck.generateCards(16);
     memoryDeck.randomizeCards();
 
-
-
-    $("#reset").click(function() {
-        location.reload(5000);
-        memoryDeck.randomizeCards(16);
-        fillGrid(memoryDeck.deck);
-    });
-
-
-
     //when you click a card
     $(document).on("click", ".card", function() {
 
@@ -74,21 +64,36 @@ $(document).ready(() => {
             }
         }
     });
-    //start button operations
-    $("#start").click(function() {
-        let counter = 45;
+
+    //alternating Start/Reset button
+    $("button").click(function () {
+        memoryDeck.randomizeCards(16);
         fillGrid(memoryDeck.deck);
         $(".card_face_back").each(function() {
             $(this).css("background-image", `url("img/${$(this).attr("value")}.jpg")`);
         });
-        setInterval(function() {
-            counter--;
-            if (counter >= 0) {
-                $("#count").text(counter);
-            }
-            if (counter === 0) {
-                clearInterval(counter);
-            }
-        }, 1000);
+        //start button
+        if($(this).attr("class") === "start") {
+            let counter = 45;
+        
+            setInterval(function() {
+                counter--;
+                if (counter >= 0) {
+                    $("#count").text(counter);
+                }
+                if (counter === 0) {
+                    clearInterval(counter);
+                }
+            }, 1000);
+            $(this).
+            toggleClass("start reset")
+            .text("RESET");
+        //reset button
+        } else if ($(this).attr("class") === "reset") {
+            location.reload();
+            $(this)
+            .toggleClass("reset start")
+            .text("START");
+        }
     });
 });
