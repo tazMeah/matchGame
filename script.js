@@ -3,6 +3,8 @@
 
 $(document).ready(() => {
 
+    let score = 0;
+
     function fillGrid(arr) {
         for (let i = 0; i < arr.length; i++) {
             $(".card_deck").append(arr[i]);
@@ -19,7 +21,7 @@ $(document).ready(() => {
             const deck = [];
             for (let i = 1; i <= numOfCards; i++) {
                 for (let j = 0; j < 2; j++) {
-                    this.deck.push(`<div class="card is_flipped" value="${i}"><div class="card_face card_face_front" value="${i}"></div><div class="card_face card_face_back" value="${i}"></div></div>`);
+                    this.deck.push(`<div class="card is_not_flipped" value="${i}"><div class="card_face card_face_front" value="${i}"></div><div class="card_face card_face_back" value="${i}"></div></div>`);
                 }
             }
         }
@@ -40,36 +42,45 @@ $(document).ready(() => {
         location.reload(5000);
         memoryDeck.randomizeCards(16);
         fillGrid(memoryDeck.deck);
-    })
+    });
 
 
 
     //when you click a card
-    $(document).on("click", ".card", function(e) {
+    $(document).on("click", ".card", function() {
 
-        //add a class to it
-        $(this).toggleClass("is_flipped");
-        console.log($(this).attr("value"));
-        // add background
-        //$(e.target).css("background", `url("/img/${$(e.target).attr('value')}.jpg")`);
+        //add a class to the card
+        $(this).toggleClass("is_not_flipped is_flipped");
 
-        //isMatch(e.target);
-
+        //if 2 cards are flipped
+        if($(".is_flipped").length === 2) {
+            //check if is a match
+            if($(".is_flipped").eq(0).attr("value") === $(".is_flipped").eq(1).attr("value")) {
+                console.log("match found");
+                //if matched increment score and hide cards
+                $(".is_flipped").toggleClass("is_flipped")
+                .animate({opacity: 0,}, 2000);
+                score++;
+            } else {
+                console.log("no match");
+                //if no match wait 3sec then flip
+                $(".is_flipped")
+                .delay(3000)
+                .queue(function(next) {
+                    $(".is_flipped")
+                    .toggleClass("is_flipped is_not_flipped");
+                    next();
+                });
+            }
+        }
     });
-
-    // if 2 cards have been flipped, i.e. 2 cards have class of "front"
-    // function isMatch(card) {
-    //     if ($(card).attr("value") === )
-    // }
-
-
+    //start button operations
     $("#start").click(function() {
         let counter = 20;
         fillGrid(memoryDeck.deck);
         $(".card_face_back").each(function() {
             $(this).css("background-image", `url("img/${$(this).attr("value")}.jpg")`);
         });
-        let counter = 8;
         setInterval(function() {
             counter--;
             if (counter >= 0) {
@@ -80,10 +91,4 @@ $(document).ready(() => {
             }
         }, 1000);
     });
-
-    $(".card_face_back").each(function() {
-        $(this).css("background-image", `url("img/${$(this).attr("value")}.jpg")`);
-    })
-
-
 });
