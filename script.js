@@ -76,17 +76,24 @@ $(document).ready(() => {
     });
     //start button operations
     $("#start").click(function() {
-        let counter = 5; // changed from 45 for testing purposes
+        let counter = 45; // changed from 45 for testing purposes
         fillGrid(memoryDeck.deck);
         $(".card_face_back").each(function() {
             $(this).css("background-image", `url("img/${$(this).attr("value")}.jpg")`);
         });
         setInterval(function() {
             counter--;
+            
+            // you win, stop timer
+            if (score == 8) {
+                clearInterval(counter);
+                return ;
+            }
+            
             if (counter >= 0) {
                 $("#count").text(counter);
             }
-            if (counter === 0) {
+            if (counter === 0) { 
                 clearInterval(counter);
 
                 //game over
@@ -96,10 +103,6 @@ $(document).ready(() => {
                 
             }
 
-            /*if (counter === 0 && ) {
-                $(".card_deck").toggle();
-                $("#gameOver div").toggle();
-            } */
 
         }, 1000);
     });
