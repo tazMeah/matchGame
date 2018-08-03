@@ -37,8 +37,9 @@ $(document).ready(() => {
     memoryDeck.randomizeCards();
 
     //when you click a card
-    $(document).on("click", ".card", function() {
-
+    $(document).on("click", ".card", function(e) {
+        // --> taz addition for bouncing cards
+        console.log($(this));
         //add a class to the card
         $(this).toggleClass("is_not_flipped is_flipped");
 

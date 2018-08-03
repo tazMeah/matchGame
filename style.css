@@ -151,6 +151,24 @@ button:focus {
     transform: rotateY(180deg);
 }
 
+.is_flipped {
+    animation: flip 1s forwards;
+}
+
+@keyframes flip {
+    0% {}
+    25% {
+        box-shadow: -15px 40px 20px rgb(179, 167, 15);
+    }
+    50% {
+        box-shadow: 0px 40px 20px rgb(179, 167, 15);
+    }
+    75% {
+        box-shadow: 15px 40px 20px rgb(179, 167, 15);
+    }
+    100% {} 
+}
+
 .card_face {
     position: absolute;
     width: 100%;
@@ -171,7 +189,7 @@ button:focus {
 }
 
 #gameOver div {
-    background: url("https://i.pinimg.com/736x/4b/8c/fa/4b8cfa974c5ba2adff1097a04e18e044--joker-batman-the-joker.jpg");
+    background: url("img/jokerDetroit.jpg");
     background-size: cover;
     height: 80vh;
     width: 80vw;
