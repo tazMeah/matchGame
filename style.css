@@ -20,12 +20,19 @@ h1 {
     color: #bb2826;
 }
 
-.scoreboard {}
+.scoreboard {
+    justify-content: right;
+    height: 50px;
+    Width: 200px;
+    background: #1c6633;
+    margin-right: 0px;
+}
 
 div {
     text-align: right;
-    margin-right: 20px;
+    margin-right: 0px;
     font-family: Comic, sans-serif;
+    color: #D0D6DF;
 }
 
 .card_deck {
@@ -66,7 +73,7 @@ nav {
 
 button {
     font-family: Comic, sans-serif;
-    color: white;
+    color: #D0D6DF;
     margin-top: 15px;
     width: 115px;
     height: 50px;
