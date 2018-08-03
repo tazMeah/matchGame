@@ -114,4 +114,63 @@ $(document).ready(function(){
     }
      
 
-})
+    let memoryDeck = new CardDeck();
+    memoryDeck.generateCards(16);
+    memoryDeck.randomizeCards();
+
+
+
+    $("#reset").click(function() {
+        location.reload(5000);
+        memoryDeck.randomizeCards(16);
+        fillGrid(memoryDeck.deck);
+    });
+
+
+
+    //when you click a card
+    $(document).on("click", ".card", function() {
+
+        //add a class to the card
+        $(this).toggleClass("is_not_flipped is_flipped");
+
+        //if 2 cards are flipped
+        if ($(".is_flipped").length === 2) {
+            //check if is a match
+            if ($(".is_flipped").eq(0).attr("value") === $(".is_flipped").eq(1).attr("value")) {
+                console.log("match found");
+                //if matched increment score and hide cards
+                $(".is_flipped").toggleClass("is_flipped")
+                    .animate({ opacity: 0, }, 1000);
+                score++;
+            } else {
+                console.log("no match");
+                //if no match wait 3sec then flip
+                $(".is_flipped")
+                    .delay(1100)
+                    .queue(function(next) {
+                        $(".is_flipped")
+                            .toggleClass("is_flipped is_not_flipped");
+                        next();
+                    });
+            }
+        }
+    });
+    //start button operations
+    $("#start").click(function() {
+        let counter = 45;
+        fillGrid(memoryDeck.deck);
+        $(".card_face_back").each(function() {
+            $(this).css("background-image", `url("img/${$(this).attr("value")}.jpg")`);
+        });
+        setInterval(function() {
+            counter--;
+            if (counter >= 0) {
+                $("#count").text(counter);
+            }
+            if (counter === 0) {
+                clearInterval(counter);
+            }
+        }, 1000);
+    });
+});
