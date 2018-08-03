@@ -9,7 +9,7 @@ $(document).ready(() => {
         }
     }
 
-    class CardDeck {
+    class cardeck {
         constructor(numOfCards) {
             this.deck = [];
             this.numOfCards = numOfCards;
