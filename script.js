@@ -99,10 +99,19 @@
  
 $(document).ready(function(){
 
-    // create a grid of 16 cards and add them to
-    // section.card_deck
+    /* 1. create a grid of 16 cards and add them to
+       html's section.card_deck */
     for (let i = 1; i < 17; i++) {
         $("section.card_deck").append("<div>");
     }
-    
+
+    /* 2. get a random number from 1 to 16  
+    and make that number the id for each div.*/
+    let cardNum;
+    for (let i = 0; i < 16; i++) {
+        cardNum = Math.ceil((Math.random()*16));
+        $("section.card_deck div").eq(i).attr("id", cardNum);
+    }
+     
+
 })
