@@ -4,7 +4,7 @@
 $(document).ready(() => {
 
     let score = 0;
-    let audio = new Audio("/sounds/cards.mp3");
+    
 
     function fillGrid(arr) {
         for (let i = 0; i < arr.length; i++) {
@@ -39,7 +39,13 @@ $(document).ready(() => {
 
     //when you click a card
     $(document).on("click", ".card", function() {
+        let audio = new Audio("/sounds/cards.mp3");
         audio.play();
+        let superman = new Audio("/sounds/superman.mp3");
+        let batman = new Audio("/sounds/batman.mp3");
+        let flash = new Audio("/sounds/flash.mp3");
+        let wonderWoman = new Audio("/sounds/wonderWoman.mp3");
+        let sinestro = new Audio("/sounds/sinestro.mp3");
 
         //add a class to the card
         $(this).toggleClass("is_not_flipped is_flipped");
@@ -48,14 +54,41 @@ $(document).ready(() => {
         if ($(".is_flipped").length === 2) {
             //check if is a match
             if ($(".is_flipped").eq(0).attr("value") === $(".is_flipped").eq(1).attr("value")) {
-                console.log("match found");
+                switch($(".is_flipped").eq(0).attr("value")) {
+                    case "1":
+                        superman.play();
+                        break;
+                    case "2":
+                        batman.play();
+                        break;
+                    case "3":
+                        flash.play();
+                        break;
+                    case "4":
+                        console.log("Aqua Man");
+                        break;        
+                    case "5":
+                        wonderWoman.play();
+                        break;
+                    case "6":
+                        wonderWoman.play();
+                        break;
+                    case "7":
+                        wonderWoman.play();
+                        break;
+                    case "8":
+                        sinestro.play();
+                        break;
+                    default:
+                        console.log($(".is_flipped").eq(0).attr("value"))
+                }
                 //if matched increment score and hide cards
                 $(".is_flipped").toggleClass("is_flipped")
                     .animate({ opacity: 0, }, 1000);
                 score++;
+                
                 $("#score").text(`SCORE: ${score}`);
             } else {
-                console.log("no match");
                 //if no match wait 3sec then flip
                 $(".is_flipped")
                     .delay(1100)
@@ -63,6 +96,7 @@ $(document).ready(() => {
                         $(".is_flipped")
                             .toggleClass("is_flipped is_not_flipped");
                         next();
+                        audio.play();
                     });
             }
         }
@@ -81,6 +115,8 @@ $(document).ready(() => {
         //start button
         if($(this).attr("class") === "start") {
             let counter = 45;
+            let jokerLaugh = new Audio("/sounds/jokerLaugh.mp3");
+
         
             setInterval(function() {
                 counter--;
@@ -93,11 +129,13 @@ $(document).ready(() => {
                     $("#count").text(counter);
                 }
                 if (counter === 0) {
+                    jokerLaugh.play();
                     clearInterval(counter);
                   
                    //game over
                 $(".card_deck").toggle();
                 $("#gameOver div").toggle();
+                
                 }
             }, 1000);
             $(this).
