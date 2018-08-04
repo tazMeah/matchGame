@@ -198,8 +198,10 @@ button:focus {
     grid-template-columns: 30% 70%;
     /*border: 2px dashed blue;*/
     padding: 2%;
-    background:  url("https://images7.alphacoders.com/659/thumb-1920-659820.jpg");
+    background: url("/img/heroes.jpg");
+
     background-size: cover;
+
     
 }
 

@@ -143,7 +143,10 @@ $(document).ready(() => {
                   
                    //game over
                 $(".card_deck").toggle();
-                $("#gameOver div").toggle();
+                //$("#gameOver div").toggle();
+                $("#gameBoard").css("background", "url('/img/villains.jpg')");
+                $("#gameBoard").css("background-size", "cover");
+
                 
                 }
             }, 1000);
