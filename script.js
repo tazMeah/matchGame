@@ -4,6 +4,7 @@
 $(document).ready(() => {
 
     let score = 0;
+    let audio = new Audio("/sounds/cards.mp3");
 
     function fillGrid(arr) {
         for (let i = 0; i < arr.length; i++) {
@@ -38,6 +39,7 @@ $(document).ready(() => {
 
     //when you click a card
     $(document).on("click", ".card", function() {
+        audio.play();
 
         //add a class to the card
         $(this).toggleClass("is_not_flipped is_flipped");
