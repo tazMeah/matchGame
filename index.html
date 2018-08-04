@@ -15,28 +15,31 @@
         <h1>MATCH GAME</h1>
     </header>
 
-
-
-    <section class="scoreboard">
-        <section id="score">SCORE: 0</section>
-        <section class="timer">Save the city in: <span id="count">40</span> seconds!!</section>
-    </section>
-
-    <section class="intro">
-
-    </section>
-    <section class="card_deck"></section>
-
-    <nav class="button">
-        <button class="start">START</button>
-    </nav>
-
-
-    <section id="gameOver">
-        <div>
-            <h2>Game Over!!!</h2>
+    <div id="gameBoard">
+        <div class="left">
+            <section class="scoreboard">
+                <section class="timer">Save the city in:<br> <span id="count">40</span> seconds</section>
+                <section id="score">SCORE: 0</section>
+            </section>
+            <section class="intro">
+                
+            </section>
+            <nav class="button">
+                    <button class="start">START</button>
+            </nav>
         </div>
-    </section>
+
+        <div class="right">
+            <section class="card_deck"></section>
+            <section id="gameOver">
+                <div>
+                    <h2>Game Over!!!</h2>
+                </div>
+            </section>
+        </div>
+   
+    </div>
+    
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
     <script src="script.js"></script>
 </body>

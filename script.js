@@ -79,7 +79,7 @@ $(document).ready(() => {
 
         //start button
         if($(this).attr("class") === "start") {
-            let counter = 45;
+            let counter = 4500;
         
             setInterval(function() {
                 counter--;
