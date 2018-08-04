@@ -143,13 +143,12 @@ button:focus {
 @keyframes flip {
     0% {}
     25% {
-        box-shadow: -15px 40px 20px rgb(179, 167, 15);
+       
     }
     50% {
-        box-shadow: 0px 40px 20px rgb(179, 167, 15);
     }
     75% {
-        box-shadow: 15px 40px 20px rgb(179, 167, 15);
+       
     }
     100% {} 
 }
@@ -199,6 +198,8 @@ button:focus {
     grid-template-columns: 30% 70%;
     /*border: 2px dashed blue;*/
     padding: 2%;
+    background:  url("https://images7.alphacoders.com/659/thumb-1920-659820.jpg");
+    background-size: cover;
     
 }
 
