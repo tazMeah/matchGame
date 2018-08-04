@@ -5,7 +5,6 @@ $(document).ready(() => {
 
     let score = 0;
     
-
     function fillGrid(arr) {
         for (let i = 0; i < arr.length; i++) {
             $(".card_deck").append(arr[i]);
@@ -48,6 +47,7 @@ $(document).ready(() => {
         let sinestro = new Audio("/sounds/sinestro.mp3");
         let aquaman = new Audio("/sounds/aquaman.mp3");
         let greenLantern = new Audio("/sounds/greenLantern.mp3");
+        let captainMarvel = new Audio("/sounds/captainMarvel.mp3");
 
         //add a class to the card
         $(this).toggleClass("is_not_flipped is_flipped");
@@ -73,7 +73,7 @@ $(document).ready(() => {
                         wonderWoman.play();
                         break;
                     case "6":
-                        wonderWoman.play();
+                        captainMarvel.play();
                         break;
                     case "7":
                         greenLantern.play();
@@ -103,6 +103,13 @@ $(document).ready(() => {
             }
         }
 
+        if (score === 8) {
+            let outstanding = new Audio("/sounds/outstanding.mp3");
+            setTimeout(function(){
+                outstanding.play();
+            },2000)
+        }
+
     });
 
 
@@ -124,7 +131,7 @@ $(document).ready(() => {
                 counter--;
               // you win, stop timer
             if (score == 8) {
-                clearInterval(counter);
+                clearInterval(counter);                
                 return ;
             }
                 if (counter >= 0) {
