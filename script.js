@@ -4,7 +4,7 @@
 $(document).ready(() => {
 
     let score = 0;
-
+    
     function fillGrid(arr) {
         for (let i = 0; i < arr.length; i++) {
             $(".card_deck").append(arr[i]);
@@ -37,9 +37,18 @@ $(document).ready(() => {
     memoryDeck.randomizeCards();
 
     //when you click a card
-    $(document).on("click", ".card", function(e) {
-        // --> taz addition for bouncing cards
-        console.log($(this));
+    $(document).on("click", ".card", function() {
+        let audio = new Audio("/sounds/cards.mp3");
+        audio.play();
+        let superman = new Audio("/sounds/superman.mp3");
+        let batman = new Audio("/sounds/batman.mp3");
+        let flash = new Audio("/sounds/flash.mp3");
+        let wonderWoman = new Audio("/sounds/wonderWoman.mp3");
+        let sinestro = new Audio("/sounds/sinestro.mp3");
+        let aquaman = new Audio("/sounds/aquaman.mp3");
+        let greenLantern = new Audio("/sounds/greenLantern.mp3");
+        let captainMarvel = new Audio("/sounds/captainMarvel.mp3");
+
         //add a class to the card
         $(this).toggleClass("is_not_flipped is_flipped");
 
@@ -47,14 +56,41 @@ $(document).ready(() => {
         if ($(".is_flipped").length === 2) {
             //check if is a match
             if ($(".is_flipped").eq(0).attr("value") === $(".is_flipped").eq(1).attr("value")) {
-                console.log("match found");
+                switch($(".is_flipped").eq(0).attr("value")) {
+                    case "1":
+                        superman.play();
+                        break;
+                    case "2":
+                        batman.play();
+                        break;
+                    case "3":
+                        flash.play();
+                        break;
+                    case "4":
+                        aquaman.play();
+                        break;        
+                    case "5":
+                        wonderWoman.play();
+                        break;
+                    case "6":
+                        captainMarvel.play();
+                        break;
+                    case "7":
+                        greenLantern.play();
+                        break;
+                    case "8":
+                        sinestro.play();
+                        break;
+                    default:
+                        console.log($(".is_flipped").eq(0).attr("value"))
+                }
                 //if matched increment score and hide cards
                 $(".is_flipped").toggleClass("is_flipped")
                     .animate({ opacity: 0, }, 1000);
                 score++;
+                
                 $("#score").text(`SCORE: ${score}`);
             } else {
-                console.log("no match");
                 //if no match wait 3sec then flip
                 $(".is_flipped")
                     .delay(1100)
@@ -62,8 +98,16 @@ $(document).ready(() => {
                         $(".is_flipped")
                             .toggleClass("is_flipped is_not_flipped");
                         next();
+                        audio.play();
                     });
             }
+        }
+
+        if (score === 8) {
+            let outstanding = new Audio("/sounds/outstanding.mp3");
+            setTimeout(function(){
+                outstanding.play();
+            },2000)
         }
 
     });
@@ -79,24 +123,28 @@ $(document).ready(() => {
 
         //start button
         if($(this).attr("class") === "start") {
-            let counter = 4500;
+            let counter = 45;
+            let jokerLaugh = new Audio("/sounds/jokerLaugh.mp3");
+
         
             setInterval(function() {
                 counter--;
               // you win, stop timer
             if (score == 8) {
-                clearInterval(counter);
+                clearInterval(counter);                
                 return ;
             }
                 if (counter >= 0) {
                     $("#count").text(counter);
                 }
                 if (counter === 0) {
+                    jokerLaugh.play();
                     clearInterval(counter);
                   
                    //game over
                 $(".card_deck").toggle();
                 $("#gameOver div").toggle();
+                
                 }
             }, 1000);
             $(this).
