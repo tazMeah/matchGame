@@ -46,6 +46,8 @@ $(document).ready(() => {
         let flash = new Audio("/sounds/flash.mp3");
         let wonderWoman = new Audio("/sounds/wonderWoman.mp3");
         let sinestro = new Audio("/sounds/sinestro.mp3");
+        let aquaman = new Audio("/sounds/aquaman.mp3");
+        let greenLantern = new Audio("/sounds/greenLantern.mp3");
 
         //add a class to the card
         $(this).toggleClass("is_not_flipped is_flipped");
@@ -65,7 +67,7 @@ $(document).ready(() => {
                         flash.play();
                         break;
                     case "4":
-                        console.log("Aqua Man");
+                        aquaman.play();
                         break;        
                     case "5":
                         wonderWoman.play();
@@ -74,7 +76,7 @@ $(document).ready(() => {
                         wonderWoman.play();
                         break;
                     case "7":
-                        wonderWoman.play();
+                        greenLantern.play();
                         break;
                     case "8":
                         sinestro.play();
