@@ -135,13 +135,6 @@ button:focus {
     border: solid black 2px;
 }
 
-
-/* img {
-    height: 20%;
-    width: 20%;
-    border-radius: 8px;
-} */
-
 .card_face_front {
     background-size: contain;
     position: absolute;
@@ -200,8 +193,6 @@ button:focus {
     border-bottom: 4px solid #bb2826;
     font-family: 'Bangers', cursive;
 }
-
-.match {}
 
 @media only screen and (min-width: 768px) {
     .card_deck {

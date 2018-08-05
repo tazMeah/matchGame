@@ -50,8 +50,8 @@ $(document).ready(() => {
                 //if matched increment score and hide cards
                 $(".is_flipped").toggleClass("is_flipped")
                     .animate({ opacity: 0, }, 1000);
-                score++;
-                $("#score").text(`SCORE: ${score} out of 8`);
+                score + 5;
+                $("#score").text(`SCORE: ${score} out of 45`);
             } else {
                 console.log("no match");
                 //if no match wait 3sec then flip
@@ -87,7 +87,7 @@ $(document).ready(() => {
             setInterval(function() {
                 counter--;
                 // you win, stop timer
-                if (score == 8) {
+                if (score == 45) {
                     clearInterval(counter);
                     return;
                 }
