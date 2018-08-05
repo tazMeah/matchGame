@@ -38,17 +38,17 @@ $(document).ready(() => {
 
     //when you click a card
     $(document).on("click", ".card", function() {
-        let audio = new Audio("/sounds/cards.mp3");
+        let audio = new Audio("sounds/cards.mp3");
         audio.play();
-        let superman = new Audio("/sounds2/superman.mp3");
-        let batman = new Audio("/sounds2/batman.mp3");
-        let flash = new Audio("/sounds2/flash.mp3");
-        let wonderWoman = new Audio("/sounds2/wonderWoman.mp3");
-        let sinestro = new Audio("/sounds2/sinestro.mp3");
-        let aquaman = new Audio("/sounds2/aquaman.mp3");
-        let greenLantern = new Audio("/sounds2/greenLantern.mp3");
-        let captainMarvel = new Audio("/sounds2/shazam.mp3");
-        let nightwing = new Audio("/sounds2/nightwing.mp3");
+        let superman = new Audio("sounds2/superman.mp3");
+        let batman = new Audio("sounds2/batman.mp3");
+        let flash = new Audio("sounds2/flash.mp3");
+        let wonderWoman = new Audio("sounds2/wonderWoman.mp3");
+        let sinestro = new Audio("sounds2/sinestro.mp3");
+        let aquaman = new Audio("sounds2/aquaman.mp3");
+        let greenLantern = new Audio("sounds2/greenLantern.mp3");
+        let captainMarvel = new Audio("sounds2/shazam.mp3");
+        let nightwing = new Audio("sounds2/nightwing.mp3");
 
         //add a class to the card
         $(this).toggleClass("is_not_flipped is_flipped");
@@ -105,7 +105,7 @@ $(document).ready(() => {
         }
 
         if (score === 8) {
-            let outstanding = new Audio("/sounds/outstanding.mp3");
+            let outstanding = new Audio("sounds/outstanding.mp3");
             setTimeout(function(){
                 outstanding.play();
             },2000)
@@ -125,7 +125,7 @@ $(document).ready(() => {
         //start button
         if($(this).attr("class") === "start") {
             let counter = 45;
-            let jokerLaugh = new Audio("/sounds/jokerLaugh.mp3");
+            let jokerLaugh = new Audio("sounds/jokerLaugh.mp3");
 
         
             setInterval(function() {
@@ -145,7 +145,7 @@ $(document).ready(() => {
                    //game over
                 $(".card_deck").toggle();
                 //$("#gameOver div").toggle();
-                $("#gameBoard").css("background", "url('/img/villains.jpg')");
+                $("#gameBoard").css("background", "url('img/villains.jpg')");
                 $("#gameBoard").css("background-size", "cover");
 
                 
