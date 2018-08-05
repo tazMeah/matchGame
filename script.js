@@ -48,6 +48,7 @@ $(document).ready(() => {
         let aquaman = new Audio("/sounds2/aquaman.mp3");
         let greenLantern = new Audio("/sounds2/greenLantern.mp3");
         let captainMarvel = new Audio("/sounds2/shazam.mp3");
+        let nightwing = new Audio("/sounds2/nightwing.mp3");
 
         //add a class to the card
         $(this).toggleClass("is_not_flipped is_flipped");
@@ -79,7 +80,7 @@ $(document).ready(() => {
                         greenLantern.play();
                         break;
                     case "8":
-                        sinestro.play();
+                        nightwing.play();
                         break;
                     default:
                         console.log($(".is_flipped").eq(0).attr("value"))
