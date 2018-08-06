@@ -34,21 +34,19 @@ $(document).ready(() => {
 
     let memoryDeck = new CardDeck();
     memoryDeck.generateCards(16);
-    memoryDeck.randomizeCards();
 
     //when you click a card
     $(document).on("click", ".card", function() {
         let audio = new Audio("sounds/cards.mp3");
         audio.play();
-        let superman = new Audio("sounds2/superman.mp3");
-        let batman = new Audio("sounds2/batman.mp3");
-        let flash = new Audio("sounds2/flash.mp3");
-        let wonderWoman = new Audio("sounds2/wonderWoman.mp3");
-        let sinestro = new Audio("sounds2/sinestro.mp3");
-        let aquaman = new Audio("sounds2/aquaman.mp3");
-        let greenLantern = new Audio("sounds2/greenLantern.mp3");
-        let captainMarvel = new Audio("sounds2/shazam.mp3");
-        let nightwing = new Audio("sounds2/nightwing.mp3");
+        let superman = new Audio("sounds/superman.mp3");
+        let batman = new Audio("sounds/batman.mp3");
+        let flash = new Audio("sounds/flash.mp3");
+        let wonderWoman = new Audio("sounds/wonderWoman.mp3");
+        let aquaman = new Audio("sounds/aquaman.mp3");
+        let greenLantern = new Audio("sounds/greenLantern.mp3");
+        let captainMarvel = new Audio("sounds/shazam.mp3");
+        let nightwing = new Audio("sounds/nightwing.mp3");
 
         //add a class to the card
         $(this).toggleClass("is_not_flipped is_flipped");
@@ -116,15 +114,17 @@ $(document).ready(() => {
 
     //alternating Start/Reset button
     $("button").click(function () {
-        memoryDeck.randomizeCards(16);
+        memoryDeck.randomizeCards();
         fillGrid(memoryDeck.deck);
+        const red_alert = new Audio("sounds/red_alert.wav");
+        const explosion = new Audio("sounds/explosion.wav");
         $(".card_face_back").each(function() {
             $(this).css("background-image", `url("img/${$(this).attr("value")}.jpg")`);
         });
 
         //start button
         if($(this).attr("class") === "start") {
-            let counter = 4500;
+            let counter = 45;
             let jokerLaugh = new Audio("sounds/jokerLaugh.mp3");
 
         
@@ -135,10 +135,25 @@ $(document).ready(() => {
                 clearInterval(counter);                
                 return ;
             }
-                if (counter >= 0) {
+
+                if (counter > 15) {
                     $("#count").text(counter);
+                } else if (counter < 16 && counter > 5) {
+                    $("#count")
+                        .text(counter)
+                        .css("color", "#bb2826")
+                        .css("font-size", "150%");
+                } else if (counter < 6 && counter >= 0) {
+                    red_alert.play();
+                    $("#count")
+                        .text(counter)
+                        .fadeOut(100);
+                    $("#count")
+                        .text(counter)
+                        .fadeIn(100);
                 }
                 if (counter === 0) {
+                    explosion.play();
                     jokerLaugh.play();
                     clearInterval(counter);
                   
