@@ -1,9 +1,9 @@
 "use strict";
 
-
 $(document).ready(() => {
 
     let score = 0;
+    const red_alert = new Audio("sounds/red_alert.wav");
     
     function fillGrid(arr) {
         for (let i = 0; i < arr.length; i++) {
@@ -86,8 +86,7 @@ $(document).ready(() => {
                 //if matched increment score and hide cards
                 $(".is_flipped").toggleClass("is_flipped")
                     .animate({ opacity: 0, }, 1000);
-                score+=5;
-                
+                score += 5;
                 $("#score").text(`SCORE: ${score}`);
             } else {
                 //if no match wait 3sec then flip
@@ -101,23 +100,26 @@ $(document).ready(() => {
                     });
             }
         }
-
+        //win
         if (score === 40) {
+            red_alert.pause();
+            red_alert.currentTime = 0;
             let outstanding = new Audio("sounds/outstanding.mp3");
             setTimeout(function(){
                 outstanding.play();
-            },2000)
+                
+            },1000)
         }
 
     });
-
 
     //alternating Start/Reset button
     $("button").click(function () {
         memoryDeck.randomizeCards();
         fillGrid(memoryDeck.deck);
-        const red_alert = new Audio("sounds/red_alert.wav");
+        
         const explosion = new Audio("sounds/explosion.wav");
+        //attach images to cards
         $(".card_face_back").each(function() {
             $(this).css("background-image", `url("img/${$(this).attr("value")}.jpg")`);
         });
@@ -135,7 +137,7 @@ $(document).ready(() => {
                 clearInterval(counter);                
                 return ;
             }
-
+                // countdown timer
                 if (counter > 15) {
                     $("#count").text(counter);
                 } else if (counter < 16 && counter > 5) {
@@ -144,6 +146,7 @@ $(document).ready(() => {
                         .css("color", "#bb2826")
                         .css("font-size", "150%");
                 } else if (counter < 6 && counter >= 0) {
+                    red_alert.volume = 0.5;
                     red_alert.play();
                     $("#count")
                         .text(counter)
@@ -153,17 +156,17 @@ $(document).ready(() => {
                         .fadeIn(100);
                 }
                 if (counter === 0) {
+                    explosion.volume = 0.2;
                     explosion.play();
+                    jokerLaugh.volume = 1.0;
                     jokerLaugh.play();
                     clearInterval(counter);
                   
-                   //game over
+                //game over
                 $(".card_deck").toggle();
                 //$("#gameOver div").toggle();
                 $("#gameBoard").css("background", "url('img/villains.jpg')");
                 $("#gameBoard").css("background-size", "cover");
-
-                
                 }
             }, 1000);
             $(this).
