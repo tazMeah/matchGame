@@ -86,7 +86,7 @@ $(document).ready(() => {
                 //if matched increment score and hide cards
                 $(".is_flipped").toggleClass("is_flipped")
                     .animate({ opacity: 0, }, 1000);
-                score++;
+                score+=5;
                 
                 $("#score").text(`SCORE: ${score}`);
             } else {
@@ -102,7 +102,7 @@ $(document).ready(() => {
             }
         }
 
-        if (score === 8) {
+        if (score === 40) {
             let outstanding = new Audio("sounds/outstanding.mp3");
             setTimeout(function(){
                 outstanding.play();
@@ -131,7 +131,7 @@ $(document).ready(() => {
             setInterval(function() {
                 counter--;
               // you win, stop timer
-            if (score == 8) {
+            if (score == 40) {
                 clearInterval(counter);                
                 return ;
             }
