@@ -134,6 +134,7 @@ button:focus {
     text-align: center;
     font-weight: bold;
     font-size: 40px;
+    -webkit-backface-visibility: hidden;
     backface-visibility: hidden;
 }
 
@@ -144,7 +145,7 @@ button:focus {
     grid-template-columns: 30% 70%;
     /*border: 2px dashed blue;*/
     padding: 2%;
-    background: url("/img/heroes.jpg");
+    background: url("img/heroes.jpg");
     background-size: cover;
     border-bottom: 2px solid #000;
 }
